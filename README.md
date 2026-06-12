@@ -40,7 +40,7 @@ The game features:
 
 ## 🖼️ Screenshot
 
-![Dice Battle Arena Gameplay](Screenshot%202026-06-12%20213303.png)
+![Dice Battle Arena Gameplay](Screenshot.png)
 
 ---
 
