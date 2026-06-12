@@ -1,104 +1,90 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Dice Game</title>
+  <title>⚔️ DICE BATTLE ARENA ⚔️</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster|Poppins:400,600,700,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<div class="game-wrapper">
-  <div class="container">
-    
-    <div class="header">
-      <h1 id="title">⚔️ DICE BATTLE ARENA ⚔️</h1>
-      <div class="round-indicator" id="roundIndicator">ROUND 1</div>
+  <div class="arena-container">
+    <!-- Header -->
+    <div class="game-header">
+      <h1 class="game-title">⚔️ DICE BATTLE ARENA ⚔️</h1>
+      <div class="round-display">ROUND <span id="roundNumber">1</span></div>
     </div>
 
-    <!-- Main Battle Grid -->
-    <div class="dice-arena">
-      <!-- Player 1 Zone -->
-      <div class="player-zone" id="player1Zone">
-        <div class="player-header">
-          <span class="avatar-icon">👑</span>
-          <span class="player-name">PLAYER 1</span>
-          <div class="score-circle" id="score1">0</div>
-        </div>
+    <!-- Main Battle Area -->
+    <div class="battle-area">
+      <!-- Player 1 -->
+      <div class="player-card player1-card" id="player1Card">
+        <div class="player-icon warrior">🗡️</div>
+        <div class="player-name">PLAYER 1</div>
+        <div class="player-class">WARRIOR</div>
         <div class="dice-container">
-          <img class="dice-img img1" id="dice1" src="images/dice6.png" alt="Dice">
+          <img class="dice-img dice1" id="dice1" src="images/dice6.png" alt="dice">
         </div>
-        <div class="player-stats">
-          <span class="stat-badge">🎯 WARRIOR</span>
-        </div>
+        <div class="player-score" id="player1Score">0</div>
+        <div class="player-badge">🔥</div>
       </div>
 
-      <!-- VS Middle -->
-      <div class="vs-banner">
+      <!-- VS Divider -->
+      <div class="vs-divider">
         <div class="vs-circle">VS</div>
-        <div class="battle-animation">⚡</div>
+        <div class="match-points">MATCH POINTS</div>
       </div>
 
-      <!-- Player 2 Zone -->
-      <div class="player-zone" id="player2Zone">
-        <div class="player-header">
-          <span class="avatar-icon">⚡</span>
-          <span class="player-name">PLAYER 2</span>
-          <div class="score-circle" id="score2">0</div>
-        </div>
+      <!-- Player 2 -->
+      <div class="player-card player2-card" id="player2Card">
+        <div class="player-icon gladiator">⚔️</div>
+        <div class="player-name">PLAYER 2</div>
+        <div class="player-class">GLADIATOR</div>
         <div class="dice-container">
-          <img class="dice-img img2" id="dice2" src="images/dice6.png" alt="Dice">
+          <img class="dice-img dice2" id="dice2" src="images/dice6.png" alt="dice">
         </div>
-        <div class="player-stats">
-          <span class="stat-badge">⚡ GLADIATOR</span>
-        </div>
+        <div class="player-score" id="player2Score">0</div>
+        <div class="player-badge">💪</div>
       </div>
     </div>
 
-    <!-- Controls -->
+    <!-- Score Bar -->
+    <div class="score-bar">
+      <div class="score-progress" id="scoreProgress1" style="width: 0%"></div>
+      <div class="score-progress2" id="scoreProgress2" style="width: 0%"></div>
+    </div>
+
+    <!-- Game Info Panel -->
+    <div class="info-panel">
+      <div class="match-status" id="matchStatus">READY! First to 5 points wins the game! Press ROLL</div>
+      <div class="round-result" id="roundResult">⚔️ Battle Ready ⚔️</div>
+    </div>
+
+    <!-- Control Panel -->
     <div class="control-panel">
-      <button class="action-btn roll-btn" id="rollBtn">
+      <button class="control-btn roll-btn" id="rollBtn">
         <span class="btn-icon">🎲</span>
         <span class="btn-text">ROLL</span>
-        <span class="btn-shortcut">R / ␣</span>
+        <span class="btn-key">R</span>
       </button>
-      <button class="action-btn reset-btn" id="resetBtn">
-        <span class="btn-icon">🔄</span>
+      <button class="control-btn reset-btn" id="resetBtn">
+        <span class="btn-icon">⟳</span>
         <span class="btn-text">RESET</span>
-        <span class="btn-shortcut">ESC</span>
+        <span class="btn-key">ESC</span>
       </button>
     </div>
 
-    <!-- Result Display -->
-    <div class="result-panel">
-      <div class="result-card">
-        <span class="result-emoji" id="resultEmoji">🎯</span>
-        <span class="result-message" id="resultMessage">PRESS ROLL TO START BATTLE</span>
+    <!-- Victory Modal -->
+    <div class="victory-modal" id="victoryModal">
+      <div class="modal-content">
+        <div class="modal-icon">🏆</div>
+        <div class="modal-title" id="modalTitle">PLAYER 1 WINS!</div>
+        <div class="modal-message" id="modalMessage">Congratulations! You are the champion!</div>
+        <button class="modal-btn" id="modalCloseBtn">PLAY AGAIN</button>
       </div>
     </div>
-
-    <!-- Winner Announcement Modal -->
-    <div class="winner-modal" id="winnerModal">
-      <div class="winner-modal-content">
-        <div class="winner-trophy">🏆</div>
-        <div class="winner-name" id="winnerName">PLAYER 1 WINS!</div>
-        <div class="winner-message" id="winnerMessage">Congratulations! First to 5 points!</div>
-        <button class="winner-close-btn" id="winnerCloseBtn">PLAY AGAIN</button>
-      </div>
-    </div>
-
-    <div class="trophy-animation" id="trophyAnim">🏆</div>
   </div>
 
-  <footer>
-    <div class="footer-content">
-      <span>🎲 DICE DUEL · SCREEN RECORD OPTIMIZED 🎲</span>
-      <span class="key-hint">⌨️ R / SPACE = ROLL | ESC = RESET | FIRST TO 5 WINS THE GAME</span>
-    </div>
-  </footer>
-</div>
-
-<script src="index.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
