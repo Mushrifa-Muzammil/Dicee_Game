@@ -42,7 +42,7 @@ The game features:
 
 ## 🖼️ Screenshot
 
-![Dice Battle Arena Gameplay](screenshot.png)
+![Dice Battle Arena Gameplay](Screenshot.png)
 
 *The main battle interface - Player 1 (Warrior) vs Player 2 (Gladiator)*
 
