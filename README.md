@@ -12,9 +12,11 @@
 
 The game features:
 - Clean, dark-themed arena layout
-- Dice roll animations
+- Dice roll animations with shake effect
 - Keyboard shortcuts for fast play
-- Winner announcement modal
+- Real-time score tracking and progress bar
+- Winner announcement modal with celebration
+- Fully responsive design (laptop, tablet, mobile)
 
 ---
 
@@ -33,14 +35,16 @@ The game features:
 
 | Action | Button | Keyboard |
 |:-------|:-------|:---------|
-| Roll Dice | 🎲 **ROLL** | `R` or `Spacebar` |
+| Roll Dice | 🎲 **ROLL** | `R` |
 | Reset Game | 🔄 **RESET** | `ESC` |
 
 ---
 
 ## 🖼️ Screenshot
 
-![Dice Battle Arena Gameplay](Screenshot.png)
+![Dice Battle Arena Gameplay](screenshot.png)
+
+*The main battle interface - Player 1 (Warrior) vs Player 2 (Gladiator)*
 
 ---
 
